@@ -1,16 +1,8 @@
 <script>
     import { Router, Route, Link, navigate } from "svelte-navigator";
-    import AdminProfile from "../routes/AdminProfile.svelte";
-    import AdminStats from "../routes/AdminStats.svelte";
-    import AdminStudents from "../routes/AdminStudents.svelte";
-    import AdminAddStudent from "../routes/AdminAddStudent.svelte";
-    import AdminStudent from "../routes/AdminStudent.svelte";
-    import AdminManage from "../routes/AdminManage.svelte";
-    import AdminAddHostel from "../routes/AdminAddHostel.svelte";
-    import AdminHostel from "../routes/AdminHostel.svelte";
-    import AdminRoom from "../routes/AdminRoom.svelte";
-    import Assignments from "../routes/Assignments.svelte";
-    import Transactions from "../routes/Transactions.svelte";
+    import UserProfile from "../routes/UserProfile.svelte";
+    import UserStats from "../routes/UserStats.svelte";
+    import UserMessages from "../routes/UserMessages.svelte";
 
     const logout = () => {
         // confime
@@ -29,16 +21,16 @@
                     // console.log("You clicked Confirm");
                     window.localStorage.removeItem("shmsLia");
 
-                    navigate("/admin");
+                    navigate("/student");
                 } else {
                 }
             });
     };
 
-    let lia = window.localStorage.shmsLia;
+    let lia = window.localStorage.shmsLiu;
 
     if (lia == undefined) {
-        navigate("/admin/");
+        navigate("/student/");
     }
 </script>
 
@@ -53,7 +45,7 @@
                 <div class="sideCol three wide column">
                     <div class="ui segmen" style="padding-left: 1em;">
                         <div class="compNav">
-                            <Link to="/admin/dash">
+                            <Link to="/student/dash">
                                 <i
                                     style="color: #85ed85;font-size:16px;"
                                     class="home icon"
@@ -68,39 +60,54 @@
                         </div>
 
                         <div class="compNav">
-                            <Link to="/admin/dash/students">
+                            <Link to="/student/dash/transactions">
                                 <i
                                     style="color: #11a5db;font-size:16px;"
-                                    class="graduation cap icon"
+                                    class=" exchange icon"
                                 />
                                 <div
                                     class=""
                                     style="color: aliceblue;padding-top: 5px;display:inline-block"
                                 >
-                                    Students
+                                    Transactions
                                 </div>
                             </Link>
                         </div>
 
                         <div class="compNav">
-                            <Link to="/admin/dash/manage">
+                            <Link to="/student/dash/assignments">
                                 <i
                                     style="color: teal;font-size:16px;"
-                                    class="cogs icon"
+                                    class="download icon"
                                 />
                                 <div
                                     class=""
                                     style="color: aliceblue;padding-top: 5px;display:inline-block"
                                 >
-                                    Manage
+                                    Assignments
                                 </div>
                             </Link>
                         </div>
 
                         <div class="compNav">
-                            <Link to="/admin/dash/profile">
+                            <Link to="/student/dash/messages">
                                 <i
                                     style="color: orangered;font-size:16px;"
+                                    class="mail icon"
+                                />
+                                <div
+                                    class=""
+                                    style="color: aliceblue;padding-top: 5px;display:inline-block"
+                                >
+                                    My Messages
+                                </div>
+                            </Link>
+                        </div>
+
+                        <div class="compNav">
+                            <Link to="/student/dash/profile">
+                                <i
+                                    style="color: purple;font-size:16px;"
                                     class="user icon"
                                 />
                                 <div
@@ -136,50 +143,14 @@
 
                 <div class="mainCol thirteen wide column">
                     <Route path="/">
-                        <AdminStats />
+                        <UserStats />
                     </Route>
                     <Route path="/profile">
-                        <AdminProfile />
+                        <UserProfile />
                     </Route>
 
-                    <Route path="/manage/*">
-                        <Route path="/">
-                            <AdminManage />
-                        </Route>
-
-                        <Route path="/hostels/add">
-                            <AdminAddHostel />
-                        </Route>
-
-                        <Route path="/hostels/*id" let:params>
-                            <AdminHostel id={params.id} />
-                        </Route>
-
-                        <Route path="/room/*id" let:params>
-                            <AdminRoom id={params.id} />
-                        </Route>
-
-                        <Route path="/assignments">
-                            <Assignments />
-                        </Route>
-
-                        <Route path="/transactions">
-                            <Transactions />
-                        </Route>
-                    </Route>
-
-                    <Route path="/students/*">
-                        <Route path="/">
-                            <AdminStudents />
-                        </Route>
-
-                        <Route path="/add">
-                            <AdminAddStudent />
-                        </Route>
-
-                        <Route path="/*id" let:params>
-                            <AdminStudent id={params.id} />
-                        </Route>
+                    <Route path="/messages">
+                        <UserMessages />
                     </Route>
                 </div>
             </div>

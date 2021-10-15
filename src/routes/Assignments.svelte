@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { Router, link } from "svelte-navigator";
+    import { v4 } from "uuid";
     import baseUrl from "../config/config";
 
     let assignBtnLoading = false;
@@ -25,13 +26,39 @@
             hostel: hostel,
             user: user,
             room: room,
+            aid: v4(),
         };
 
+        // send the data to the server
 
-        // send the data to the server 
+        assignBtnLoading = true;
 
+        fetch(baseUrl + "add-assignment.php", {
+            method: "POST",
+            body: JSON.stringify(assignmentData),
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                // if
+                if (data.success) {
+                    // toast
+                    toast.success(data.message);
+                } else {
+                    toast.error(data.message);
+                }
 
+                getAssignmentDetails();
 
+                assignBtnLoading = false;
+            })
+            .catch((e) => {
+                console.log(e);
+
+                assignBtnLoading = false;
+            });
 
         console.log(assignmentData);
     };
@@ -182,7 +209,46 @@
                         </div>
                     </div>
 
-                    <div class="twelve wide column" />
+                    <div class="twelve wide column">
+                        <div class="">
+                            <b> Latest Assignments </b>
+                        </div>
+
+                        <div class="">
+                            <table class="ui inverted basic table">
+                                <thead>
+                                    <tr>
+                                        <th> No. </th>
+                                        <th> Name </th>
+                                        <th> Hostel </th>
+                                        <th> Room </th>
+                                        <th> Date </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {#each assignmentDetails.assignments as assignment}
+                                        <tr>
+                                            <td>
+                                                {assignment.no}
+                                            </td>
+                                            <td>
+                                                {assignment.user}
+                                            </td>
+                                            <td>
+                                                {assignment.hostel}
+                                            </td>
+                                            <td>
+                                                {assignment.room}
+                                            </td>
+                                            <td>
+                                                {assignment.date}
+                                            </td>
+                                        </tr>
+                                    {/each}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             {/if}
         </div>

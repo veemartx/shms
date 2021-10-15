@@ -4,13 +4,10 @@
     import { Router, Link } from "svelte-navigator";
     import baseUrl from "../config/config";
 
-    let notificationType;
-
     let notificationMessage;
 
     let notificationTitle;
 
-    let notificationStudent;
 
     let stats;
 
@@ -25,11 +22,11 @@
 
     const postNotification = () => {
         let notification = {
-            sender: window.localStorage.shmsLia,
-            type: notificationType,
+            sender: window.localStorage.shmsLiu,
+            type: "Individual",
             title: notificationTitle,
             message: notificationMessage,
-            recipient: notificationStudent,
+            recipient: "Admin",
             notificationId: uuidv4(),
         };
 
@@ -70,15 +67,25 @@
     };
 
     const getHomeStats = () => {
-        fetch(baseUrl + "get-admin-home-stats.php")
+        // lia
+        let liu = {
+            liu: window.localStorage.shmsLiu,
+        };
+
+        fetch(baseUrl + "get-user-home-stats.php", {
+            method: "POST",
+            body: JSON.stringify(liu),
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+        })
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-
                 stats = data;
             })
             .catch((e) => {
-                console.log(data);
+                console.log(e);
             });
     };
 
@@ -104,7 +111,7 @@
                     <div class="ui stackable  grid">
                         <div class="doubling four column row">
                             <div class="re column">
-                                <Link to="/admin/dash/students/">
+                                <Link to="/student/dash/profile/">
                                     <div class="statsPanel">
                                         <div class="iconContainer">
                                             <img
@@ -117,16 +124,18 @@
 
                                         <div class="descriptionContainer">
                                             <div class="figureContainer">
-                                                {stats.allUsers}
+                                                --
                                             </div>
-                                            <div class="description">Users</div>
+                                            <div class="description">
+                                                My Profile
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>
                             </div>
 
                             <div class="tea column">
-                                <Link to="/admin/dash/rooms/">
+                                <Link to="/student/dash/assignments/">
                                     <div class="statsPanel">
                                         <div class="iconContainer">
                                             <img
@@ -139,32 +148,10 @@
 
                                         <div class="descriptionContainer">
                                             <div class="figureContainer">
-                                                {stats.rooms}
-                                            </div>
-                                            <div class="description">Rooms</div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-
-                            <div class="brow column">
-                                <Link to="/admin/dash/students">
-                                    <div class="statsPanel">
-                                        <div class="iconContainer">
-                                            <img
-                                                src="/assets/icons/users.png"
-                                                alt="Short Expiry icon"
-                                                width="32"
-                                                height="32"
-                                            />
-                                        </div>
-
-                                        <div class="descriptionContainer">
-                                            <div class="figureContainer">
-                                                {stats.usersNo}
+                                                {stats.assignments}
                                             </div>
                                             <div class="description">
-                                                Students
+                                                My Assignments
                                             </div>
                                         </div>
                                     </div>
@@ -172,31 +159,7 @@
                             </div>
 
                             <div class="brow column">
-                                <Link to="/admin/dash/admins">
-                                    <div class="statsPanel">
-                                        <div class="iconContainer">
-                                            <img
-                                                src="/assets/icons/admin.png"
-                                                alt="Short Expiry icon"
-                                                width="32"
-                                                height="32"
-                                            />
-                                        </div>
-
-                                        <div class="descriptionContainer">
-                                            <div class="figureContainer">
-                                                {stats.adminsNo}
-                                            </div>
-                                            <div class="description">
-                                                Admins
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-
-                            <div class="brow column">
-                                <Link to="/admin/dash/admins">
+                                <Link to="/student/dash/transactions">
                                     <div class="statsPanel">
                                         <div class="iconContainer">
                                             <img
@@ -212,7 +175,7 @@
                                                 {stats.transactions}
                                             </div>
                                             <div class="description">
-                                                Transactions
+                                                My Transactions
                                             </div>
                                         </div>
                                     </div>
@@ -220,7 +183,7 @@
                             </div>
 
                             <div class="brow column">
-                                <Link to="/admin/dash/admins">
+                                <Link to="/student/dash/messages">
                                     <div class="statsPanel">
                                         <div class="iconContainer">
                                             <img
@@ -248,33 +211,6 @@
 
                 <div class="seperatorCol sixteen wide column" />
 
-                <div class="latestTransactionsCol sixteen wide column">
-                    <div class="title">Latest Transactions</div>
-
-                    <div class="">
-                        <table
-                            class="ui striped unstackable inverted basic table"
-                        >
-                            <thead>
-                                <tr>
-                                    <th> No </th>
-                                    <th> Code </th>
-                                    <th> Name </th>
-                                    <th> Amount </th>
-                                    <th> Date </th>
-                                    <th> View </th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="sixteen wide column">
-                    <div class="notificationsTitle">Notifications</div>
-                </div>
-
-                <div class="seperatorCol sixteen wide column" />
-
                 <div class="postNotification eight wide column ">
                     <div class="title">Post Notification</div>
                     <div class="">
@@ -296,43 +232,6 @@
                                     bind:value={notificationTitle}
                                 />
                             </div>
-
-                            <div class="field">
-                                <label for="type"> Type </label>
-
-                                <select
-                                    name="type"
-                                    id="type"
-                                    required
-                                    bind:value={notificationType}
-                                >
-                                    <option value="">Select Type</option>
-                                    <option value="All">All</option>
-                                    <option value="Individual"
-                                        >Individual</option
-                                    >
-                                    <!-- <option value="Group">Group</option> -->
-                                </select>
-                            </div>
-
-                            {#if notificationType == "Individual"}
-                                <div class="field">
-                                    <label for="individual">
-                                        Select Student
-                                    </label>
-                                    <select
-                                        name="student"
-                                        id="student"
-                                        required
-                                        bind:value={notificationStudent}
-                                    >
-                                        <option value="">Select Student</option>
-                                        {#each stats.users as user}
-                                            <option value={user}>{user}</option>
-                                        {/each}
-                                    </select>
-                                </div>
-                            {/if}
 
                             <div class="field">
                                 <label for="message"> Message </label>
@@ -463,13 +362,6 @@
         border-right: 1px solid rgba(128, 128, 128, 0.459);
     }
 
-    .notificationsTitle {
-        font-weight: 600;
-        font-size: large;
-        text-align: center;
-        padding-top: 1em;
-    }
-
     .notification {
         margin-top: 1em;
         background: rgb(12, 58, 119);
@@ -503,12 +395,6 @@
 
     input {
         background: rgb(61, 61, 61) !important;
-    }
-
-    select {
-        background: rgb(61, 61, 61) !important;
-        color: aliceblue !important;
-        height: 3.5em !important;
     }
 
     textarea {

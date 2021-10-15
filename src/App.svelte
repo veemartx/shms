@@ -6,6 +6,7 @@
 	import WelcomeHome from "./routes/WelcomeHome.svelte";
 	import StudentLogin from "./routes/StudentLogin.svelte";
 	import LandingPage from "./routes/LandingPage.svelte";
+	import StudentHome from "./routes/UserHome.svelte";
 </script>
 
 <main>
@@ -27,8 +28,14 @@
 			</Route>
 		</Route>
 
-		<Route path="student">
-			<StudentLogin />
+		<Route path="student/*">
+			<Route path="/">
+				<StudentLogin />
+			</Route>
+
+			<Route path="/dash/*">
+				<StudentHome />
+			</Route>
 		</Route>
 	</Router>
 </main>
