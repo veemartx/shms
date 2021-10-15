@@ -3,6 +3,8 @@
     import UserProfile from "../routes/UserProfile.svelte";
     import UserStats from "../routes/UserStats.svelte";
     import UserMessages from "../routes/UserMessages.svelte";
+    import UserAssignments from "../routes/UserAssignments.svelte";
+    import UserTransactions from "../routes/UserTransactions.svelte";
 
     const logout = () => {
         // confime
@@ -19,7 +21,7 @@
             .then(function (value) {
                 if (value) {
                     // console.log("You clicked Confirm");
-                    window.localStorage.removeItem("shmsLia");
+                    window.localStorage.removeItem("shmsLiu");
 
                     navigate("/student");
                 } else {
@@ -151,6 +153,14 @@
 
                     <Route path="/messages">
                         <UserMessages />
+                    </Route>
+
+                    <Route path="/assignments">
+                        <UserAssignments />
+                    </Route>
+
+                    <Route path="/transactions">
+                        <UserTransactions />
                     </Route>
                 </div>
             </div>

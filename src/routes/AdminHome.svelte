@@ -11,6 +11,7 @@
     import AdminRoom from "../routes/AdminRoom.svelte";
     import Assignments from "../routes/Assignments.svelte";
     import Transactions from "../routes/Transactions.svelte";
+    import AdminMessages from "../routes/AdminMessages.svelte";
 
     const logout = () => {
         // confime
@@ -78,6 +79,21 @@
                                     style="color: aliceblue;padding-top: 5px;display:inline-block"
                                 >
                                     Students
+                                </div>
+                            </Link>
+                        </div>
+
+                        <div class="compNav">
+                            <Link to="/admin/dash/messages">
+                                <i
+                                    style="color: purple;font-size:16px;"
+                                    class="mail icon"
+                                />
+                                <div
+                                    class=""
+                                    style="color: aliceblue;padding-top: 5px;display:inline-block"
+                                >
+                                    Messages
                                 </div>
                             </Link>
                         </div>
@@ -179,6 +195,12 @@
 
                         <Route path="/*id" let:params>
                             <AdminStudent id={params.id} />
+                        </Route>
+                    </Route>
+
+                    <Route path="/messages/*">
+                        <Route path="/*">
+                            <AdminMessages />
                         </Route>
                     </Route>
                 </div>
