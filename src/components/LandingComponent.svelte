@@ -4,7 +4,7 @@
 <main>
     <div class="ui grid">
         <div class="re sixteen wide column">
-            <div class="mainTitle">AJAAZ HOSTELS</div>
+            <div class="mainTitle">EXAM HALL ALLOCATION SYSTEM</div>
 
             <div class="mainText">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque
