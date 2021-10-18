@@ -42,7 +42,7 @@
                         <span style="float:right;">
                             <Link to="/admin/dash/manage/hostels/add">
                                 <span style="color:cyan"
-                                    ><i class="plus icon" /> Add Hostel</span
+                                    ><i class="plus icon" /> Add Hall</span
                                 >
                             </Link>
                         </span>
@@ -63,9 +63,9 @@
                             </div>
 
                             <div class="item">
-                                <Link to="transactions"
+                                <!-- <Link to="transactions"
                                     >Transactions</Link
-                                >
+                                > -->
                             </div>
                         </div>
                     </div>

@@ -20,9 +20,9 @@
 
     let roomCode;
 
-    let rentPerMonth;
+    let rentPerMonth=0;
 
-    let roomType;
+    let roomType='sc';
 
     let rooms;
 
@@ -61,7 +61,7 @@
     });
 
     const deleteHostel = () => {
-        if (confirm("Delete Hostel? This action cannot be undone")) {
+        if (confirm("Delete Hall? This action cannot be undone")) {
             // delete hostel
             let hostel = {
                 id: id,
@@ -110,7 +110,7 @@
         editLoading = true;
 
         // send this to server for deletion
-        fetch(baseUrl + "edit-hostel.php", {
+        fetch(baseUrl + "edit-hall.php", {
             method: "POST",
             body: JSON.stringify(hostel),
             headers: {
@@ -195,7 +195,7 @@
                         <i class="arrow left icon" /> Back
                     </span>
 
-                    &nbsp;&nbsp;&nbsp;&nbsp; Hostel
+                    &nbsp;&nbsp;&nbsp;&nbsp; Hall
                 </div>
 
                 <div class="sixteen wide column">
@@ -283,7 +283,7 @@
                 <div class="sideCol re four wide column">
                     <div class="">
                         <h5>
-                            <i class="plus icon" /> ADD ROOM
+                            <i class="plus icon" /> ADD SEAT
                         </h5>
 
                         <br />
@@ -294,7 +294,7 @@
                             on:submit|preventDefault={addRoom}
                         >
                             <div class="field">
-                                <label for="code"> Room Code </label>
+                                <label for="code"> Code </label>
                                 <input
                                     type="text"
                                     name="roomCode"
@@ -305,7 +305,7 @@
                                 />
                             </div>
 
-                            <div class="field">
+                            <!-- <div class="field">
                                 <label for="roomType"> Room Type </label>
                                 <select
                                     name="roomType"
@@ -319,9 +319,9 @@
                                     <option value="1 Bdrm">1 Bdrm</option>
                                     <option value="2 Bdrm">2 Bdrm</option>
                                 </select>
-                            </div>
+                            </div> -->
 
-                            <div class="field">
+                            <!-- <div class="field">
                                 <label for="rentPerMonth"> Rent </label>
                                 <input
                                     type="text"
@@ -331,7 +331,7 @@
                                     required
                                     bind:value={rentPerMonth}
                                 />
-                            </div>
+                            </div> -->
 
                             <div
                                 class="field"
@@ -358,8 +358,8 @@
                                 <tr>
                                     <th> No </th>
                                     <th> Code </th>
-                                    <th> Rent </th>
-                                    <th> Type </th>
+                                    <!-- <th> Rent </th> -->
+                                    <!-- <th> Type </th> -->
                                     <th> Status </th>
                                     <th> Action </th>
                                 </tr>
@@ -373,13 +373,13 @@
                                         <td>
                                             {room.code}
                                         </td>
-                                        <td>
+                                        <!-- <td>
                                             {room.rent}
-                                        </td>
+                                        </td> -->
 
-                                        <td>
+                                        <!-- <td>
                                             {room.type}
-                                        </td>
+                                        </td> -->
 
                                         <td>
                                             {#if room.status == "Vacant"}
@@ -432,9 +432,9 @@
         background: rgb(61, 61, 61) !important;
     }
 
-    select {
+    /* select {
         background: rgb(61, 61, 61) !important;
         color: aliceblue !important;
         height: 3.5em !important;
-    }
+    } */
 </style>

@@ -41,7 +41,7 @@
         <div class="wrapper">
             <div class="ui grid">
                 <div class="topCol sixteen wide column">
-                    <div class="mainTitle">AJAAZ HOSTELS</div>
+                    <div class="mainTitle">EXAM HALL ALLOCATION</div>
                 </div>
 
                 <div class="sideCol three wide column">
@@ -61,20 +61,6 @@
                             </Link>
                         </div>
 
-                        <div class="compNav">
-                            <Link to="/student/dash/transactions">
-                                <i
-                                    style="color: #11a5db;font-size:16px;"
-                                    class=" exchange icon"
-                                />
-                                <div
-                                    class=""
-                                    style="color: aliceblue;padding-top: 5px;display:inline-block"
-                                >
-                                    Transactions
-                                </div>
-                            </Link>
-                        </div>
 
                         <div class="compNav">
                             <Link to="/student/dash/assignments">

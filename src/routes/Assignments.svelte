@@ -122,7 +122,7 @@
                     <div class="rightCol four wide column">
                         <div class="">
                             <b>
-                                <i class="plus icon" /> Assign Rooms
+                                <i class="plus icon" /> Assign Seats
                             </b>
 
                             <hr />
@@ -134,7 +134,7 @@
                                 on:submit|preventDefault={handleAssignment}
                             >
                                 <div class="field">
-                                    <label for="Hostel">Hostel</label>
+                                    <label for="Hostel">Hall</label>
                                     <select
                                         name="hostel"
                                         id="hostel"
@@ -142,7 +142,7 @@
                                         bind:value={hostel}
                                         on:change={handleHostelChange}
                                     >
-                                        <option value="">Select Hostel</option>
+                                        <option value="">Select Hall</option>
                                         {#each assignmentDetails.hostels as hostel}
                                             <option value={hostel.name}
                                                 >{hostel.name}</option
@@ -152,7 +152,7 @@
                                 </div>
 
                                 <div class="field">
-                                    <label for="room">Room</label>
+                                    <label for="room">Seat</label>
                                     <select
                                         name="room"
                                         id="room"
@@ -160,7 +160,7 @@
                                         bind:value={room}
                                     >
                                         <option value=""
-                                            >Select Room <i
+                                            >Select Seat <i
                                                 class="circle icon"
                                             />
                                         </option>
@@ -181,7 +181,7 @@
                                         required
                                         bind:value={user}
                                     >
-                                        <option value="">Select User</option>
+                                        <option value="">Select Student</option>
 
                                         {#each assignmentDetails.users as user}
                                             <option value={user.name}
@@ -220,8 +220,8 @@
                                     <tr>
                                         <th> No. </th>
                                         <th> Name </th>
-                                        <th> Hostel </th>
-                                        <th> Room </th>
+                                        <th> Hall </th>
+                                        <th> Seat </th>
                                         <th> Date </th>
                                     </tr>
                                 </thead>

@@ -72,7 +72,7 @@
                     <i class="arrow left icon" /> Back
                 </span>
 
-                &nbsp;&nbsp;&nbsp;&nbsp; Add Hostel
+                &nbsp;&nbsp;&nbsp;&nbsp; Add Hall
             </div>
 
             <div class="sixteen wide column">
@@ -89,7 +89,7 @@
                                 name="name"
                                 id="name"
                                 required
-                                placeholder="Hostel Name"
+                                placeholder="Hall Name"
                                 bind:value={name}
                             />
                         </div>
@@ -107,7 +107,7 @@
                         </div>
 
                         <div class="field">
-                            <label for="units">Units</label>
+                            <label for="units">Seats</label>
                             <input
                                 type="number"
                                 name="units"
@@ -124,11 +124,11 @@
                         >
                             {#if btnLoading}
                                 <button class="ui red loading button">
-                                    <i class="plus icon" /> Add Hostel
+                                    <i class="plus icon" /> Add Hall
                                 </button>
                             {:else}
                                 <button class="ui red button">
-                                    <i class="plus icon" /> Add Hostel
+                                    <i class="plus icon" /> Add Hall
                                 </button>
                             {/if}
                         </div>

@@ -48,7 +48,7 @@
         <div class="wrapper">
             <div class="ui grid">
                 <div class="topCol sixteen wide column">
-                    <div class="mainTitle">AJAAZ HOSTELS</div>
+                    <div class="mainTitle">EXAM HALL ALLOCATION SYSTEM</div>
                 </div>
 
                 <div class="sideCol three wide column">

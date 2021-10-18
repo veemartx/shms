@@ -158,29 +158,6 @@
                                 </Link>
                             </div>
 
-                            <div class="brow column">
-                                <Link to="/student/dash/transactions">
-                                    <div class="statsPanel">
-                                        <div class="iconContainer">
-                                            <img
-                                                src="/assets/icons/transaction.png"
-                                                alt="Short Expiry icon"
-                                                width="32"
-                                                height="32"
-                                            />
-                                        </div>
-
-                                        <div class="descriptionContainer">
-                                            <div class="figureContainer">
-                                                {stats.transactions}
-                                            </div>
-                                            <div class="description">
-                                                My Transactions
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
 
                             <div class="brow column">
                                 <Link to="/student/dash/messages">

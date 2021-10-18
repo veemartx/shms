@@ -55,7 +55,7 @@
                     <i class="arrow left icon" /> Back
                 </span>
 
-                &nbsp;&nbsp;&nbsp;&nbsp; Room
+                &nbsp;&nbsp;&nbsp;&nbsp; Seat
             </div>
 
             <div class="sixteen wide column">
@@ -109,7 +109,7 @@
                         <label for="">Status</label>
                         <select name="status" id="status">
                             <option value="">Select New Status</option>
-                            <option value="Occupied">Occupied</option>
+                            <option value="Occupied">Assigned</option>
                             <option value="Vacant">Vacant</option>
                         </select>
                     </div>
@@ -131,7 +131,7 @@
                         <tr>
                             <th> No </th>
                             <th> Name </th>
-                            <th> Amount </th>
+                            <!-- <th> Amount </th> -->
                             <th> Date </th>
                         </tr>
                     </thead>

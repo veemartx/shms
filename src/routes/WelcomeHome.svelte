@@ -34,7 +34,7 @@
         <div class="sixteen wide column">
             <div class="title">H.M.S</div>
 
-            <div class="subTitle">Hostel Management System</div>
+            <div class="subTitle">Hall Allocation System</div>
 
             <div class="introductionText">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa
