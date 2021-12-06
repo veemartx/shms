@@ -195,29 +195,6 @@
                                 </Link>
                             </div>
 
-                            <div class="brow column">
-                                <Link to="/admin/dash/admins">
-                                    <div class="statsPanel">
-                                        <div class="iconContainer">
-                                            <img
-                                                src="/assets/icons/transaction.png"
-                                                alt="Short Expiry icon"
-                                                width="32"
-                                                height="32"
-                                            />
-                                        </div>
-
-                                        <div class="descriptionContainer">
-                                            <div class="figureContainer">
-                                                {stats.transactions}
-                                            </div>
-                                            <div class="description">
-                                                Transactions
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
 
                             <div class="brow column">
                                 <Link to="/admin/dash/admins">
@@ -248,26 +225,6 @@
 
                 <div class="seperatorCol sixteen wide column" />
 
-                <div class="latestTransactionsCol sixteen wide column">
-                    <div class="title">Latest Transactions</div>
-
-                    <div class="">
-                        <table
-                            class="ui striped unstackable inverted basic table"
-                        >
-                            <thead>
-                                <tr>
-                                    <th> No </th>
-                                    <th> Code </th>
-                                    <th> Name </th>
-                                    <th> Amount </th>
-                                    <th> Date </th>
-                                    <th> View </th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                </div>
 
                 <div class="sixteen wide column">
                     <div class="notificationsTitle">Notifications</div>

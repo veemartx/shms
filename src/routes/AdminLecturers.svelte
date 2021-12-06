@@ -6,7 +6,7 @@
     let users;
 
     const getusers = () => {
-        fetch(baseUrl + "get-users.php")
+        fetch(baseUrl + "get-lecturers.php")
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);
@@ -37,11 +37,11 @@
                             <i class="arrow left icon" /> Back
                         </span>
 
-                        &nbsp;&nbsp;&nbsp;&nbsp; Students
+                        &nbsp;&nbsp;&nbsp;&nbsp; Lecturers
                         <span style="float:right;">
-                            <Link to="/admin/dash/students/add">
+                            <Link to="/admin/dash/lecturers/add">
                                 <span style="color:cyan"
-                                    ><i class="plus icon" /> Add Student</span
+                                    ><i class="plus icon" /> Add Lecturer</span
                                 >
                             </Link>
                         </span>
@@ -56,7 +56,6 @@
                                         <th> Name </th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Reg No </th>
                                         <th> View </th>
                                     </tr>
                                 </thead>
@@ -76,9 +75,7 @@
                                             <td>
                                                 {user.phone}
                                             </td>
-                                            <td>
-                                                {user.idNo}
-                                            </td>
+
 
                                             <td>
                                                 <Link to={user.id}>

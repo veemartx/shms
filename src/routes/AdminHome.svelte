@@ -12,6 +12,9 @@
     import Assignments from "../routes/Assignments.svelte";
     import Transactions from "../routes/Transactions.svelte";
     import AdminMessages from "../routes/AdminMessages.svelte";
+    import AdminLecturers from "./AdminLecturers.svelte";
+    import AdminAddLecturer from "./AdminAddLecturer.svelte";
+import AdminLecturer from "./AdminLecturer.svelte";
 
     const logout = () => {
         // confime
@@ -114,6 +117,36 @@
                         </div>
 
                         <div class="compNav">
+                            <Link to="/admin/dash/lecturers">
+                                <i
+                                    style="color: teal;font-size:16px;"
+                                    class="users icon"
+                                />
+                                <div
+                                    class=""
+                                    style="color: aliceblue;padding-top: 5px;display:inline-block"
+                                >
+                                    Lecturers
+                                </div>
+                            </Link>
+                        </div>
+
+                        <div class="compNav">
+                            <Link to="/admin/dash/courses">
+                                <i
+                                    style="color: crimson;font-size:16px;"
+                                    class="file icon"
+                                />
+                                <div
+                                    class=""
+                                    style="color: aliceblue;padding-top: 5px;display:inline-block"
+                                >
+                                    Courses
+                                </div>
+                            </Link>
+                        </div>
+
+                        <div class="compNav">
                             <Link to="/admin/dash/profile">
                                 <i
                                     style="color: orangered;font-size:16px;"
@@ -195,6 +228,20 @@
 
                         <Route path="/*id" let:params>
                             <AdminStudent id={params.id} />
+                        </Route>
+                    </Route>
+
+                    <Route path="/lecturers/*">
+                        <Route path="/">
+                            <AdminLecturers />
+                        </Route>
+
+                        <Route path="/add">
+                            <AdminAddLecturer />
+                        </Route>
+
+                        <Route path="/*id" let:params>
+                            <AdminLecturer id={params.id} />
                         </Route>
                     </Route>
 

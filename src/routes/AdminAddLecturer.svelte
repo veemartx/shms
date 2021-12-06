@@ -15,7 +15,7 @@
 
     let idNo;
 
-    let gender;
+    let title;
 
     $: username = fname.toLowerCase() + lname.toLowerCase();
 
@@ -28,21 +28,20 @@
         addUserForm.reset();
     };
 
-
     const handleAddUser = () => {
         let userData = {
             name: fullname,
+            title: title,
             email: email,
             username: username,
             phone: phone,
             idNo: idNo,
-            gender: gender,
             userId: uuidv4(),
         };
 
         btnLoading = true;
 
-        fetch(baseUrl + "add-user.php", {
+        fetch(baseUrl + "add-lecturer.php", {
             method: "POST",
             body: JSON.stringify(userData),
             headers: {
@@ -86,7 +85,7 @@
                     <i class="arrow left icon" /> Back
                 </span>
 
-                &nbsp;&nbsp;&nbsp;&nbsp; Add Student
+                &nbsp;&nbsp;&nbsp;&nbsp; Add Lecturer
             </div>
 
             <div class="sixteen wide column">
@@ -96,7 +95,25 @@
                         id="addUserForm"
                         on:submit|preventDefault={handleAddUser}
                     >
-                        <div class="two fields">
+                        <div class="three fields">
+                            <div class="field">
+                                <label for="fname"> Title </label>
+                                <select
+                                    name="title"
+                                    id="title"
+                                    bind:value={title}
+                                    required
+                                >
+                                    <option value="">Select Title</option>
+                                    <option value="Madam">Madam</option>
+                                    <option value="Sir.">Sir</option>
+                                    <option value="Dr.">Dr</option>
+                                    <option value="Prof.">Prof</option>
+                                    <option value="Mr.">Mr</option>
+                                    <option value="Ms.">Ms</option>
+                                </select>
+                            </div>
+
                             <div class="field">
                                 <label for="fname"> First Name </label>
 
@@ -124,33 +141,6 @@
                             </div>
                         </div>
 
-                        <div class="two fields">
-                            <div class="field">
-                                <label for="fname"> Username </label>
-
-                                <input
-                                    type="text"
-                                    name="username"
-                                    id="username"
-                                    placeholder="Username"
-                                    bind:value={username}
-                                    readonly
-                                />
-                            </div>
-
-                            <div class="field">
-                                <label for="fname"> Reg No </label>
-
-                                <input
-                                    type="text"
-                                    name="idNo"
-                                    id="idNo"
-                                    bind:value={idNo}
-                                    required
-                                    placeholder="00000000"
-                                />
-                            </div>
-                        </div>
 
                         <div class="two fields">
                             <div class="field">
@@ -179,32 +169,17 @@
                             </div>
                         </div>
 
-                        <div class="field">
-                            <label for="gender">Gender</label>
-                            <select
-                                name="gender"
-                                id="gender"
-                                required
-                                bind:value={gender}
-                            >
-                                <option value="">Select Gender</option>
-                                <option value="Female">Female</option>
-                                <option value="Male">Male</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-
                         <div
                             class="field"
                             style="text-align: center;padding-top:2em"
                         >
                             {#if btnLoading}
                                 <button class="ui red loading button">
-                                    <i class="plus icon" /> Add User
+                                    <i class="plus icon" /> Add Lecturer
                                 </button>
                             {:else}
                                 <button class="ui red button">
-                                    <i class="plus icon" /> Add User
+                                    <i class="plus icon" /> Add Lecturer
                                 </button>
                             {/if}
                         </div>

@@ -22,11 +22,7 @@
                                 <div class="link">About</div>
                             </Link>
                         </div>
-                        <div class="compNav">
-                            <Link to="/contact">
-                                <div class="link">Contact Us</div>
-                            </Link>
-                        </div>
+
                     </div>
                 </div>
 
@@ -80,7 +76,7 @@
     main {
         height: 100vh;
         margin-top: -2em;
-        background-image: url("../assets/images/bathtub_.jpg");
+        background-image: url("../assets/images/images.jpeg");
         background-size: cover;
     }
 
