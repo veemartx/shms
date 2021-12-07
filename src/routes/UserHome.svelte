@@ -5,6 +5,7 @@
     import UserMessages from "../routes/UserMessages.svelte";
     import UserAssignments from "../routes/UserAssignments.svelte";
     import UserTransactions from "../routes/UserTransactions.svelte";
+    import UserCourses from "./UserCourses.svelte";
 
     const logout = () => {
         // confime
@@ -61,7 +62,6 @@
                             </Link>
                         </div>
 
-
                         <div class="compNav">
                             <Link to="/student/dash/assignments">
                                 <i
@@ -88,6 +88,21 @@
                                     style="color: aliceblue;padding-top: 5px;display:inline-block"
                                 >
                                     My Messages
+                                </div>
+                            </Link>
+                        </div>
+
+                        <div class="compNav">
+                            <Link to="/student/dash/courses">
+                                <i
+                                    style="color: crimson;font-size:16px;"
+                                    class="file icon"
+                                />
+                                <div
+                                    class=""
+                                    style="color: aliceblue;padding-top: 5px;display:inline-block"
+                                >
+                                    My Courses
                                 </div>
                             </Link>
                         </div>
@@ -143,6 +158,10 @@
 
                     <Route path="/assignments">
                         <UserAssignments />
+                    </Route>
+
+                    <Route path="/courses">
+                        <UserCourses />
                     </Route>
 
                     <Route path="/transactions">

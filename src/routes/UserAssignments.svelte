@@ -48,9 +48,11 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Hostel</th>
-                                <th>Room</th>
-                                <th>Date</th>
+                                <th>Hall</th>
+                                <th>Seat</th>
+                                <th>Course Code</th>
+                                <th>Date/Time</th>
+                                <th>Invigilator</th>
                             </tr>
                         </thead>
                         {#if assignments != undefined}

@@ -14,7 +14,10 @@
     import AdminMessages from "../routes/AdminMessages.svelte";
     import AdminLecturers from "./AdminLecturers.svelte";
     import AdminAddLecturer from "./AdminAddLecturer.svelte";
-import AdminLecturer from "./AdminLecturer.svelte";
+    import AdminLecturer from "./AdminLecturer.svelte";
+    import AdminCourses from "./AdminCourses.svelte";
+    import AdminAddCourse from "./AdminAddCourse.svelte";
+    import AdminCourse from "./AdminCourse.svelte";
 
     const logout = () => {
         // confime
@@ -242,6 +245,20 @@ import AdminLecturer from "./AdminLecturer.svelte";
 
                         <Route path="/*id" let:params>
                             <AdminLecturer id={params.id} />
+                        </Route>
+                    </Route>
+
+                    <Route path="/courses/*">
+                        <Route path="/">
+                            <AdminCourses />
+                        </Route>
+
+                        <Route path="/add">
+                            <AdminAddCourse />
+                        </Route>
+
+                        <Route path="/*id" let:params>
+                            <AdminCourse id={params.id} />
                         </Route>
                     </Route>
 
