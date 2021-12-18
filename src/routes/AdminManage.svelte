@@ -77,7 +77,7 @@
                                     <th> No </th>
                                     <th> Name </th>
                                     <th> Location </th>
-                                    <th> Rooms </th>
+                                    <th> Seats </th>
                                     <th> Vacant </th>
                                     <th> View </th>
                                 </tr>

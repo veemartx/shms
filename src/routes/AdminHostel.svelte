@@ -277,7 +277,7 @@
                 </div>
 
                 <div class="separatorCol sixteen wide column">
-                    <h4>Rooms</h4>
+                    <h4>Seats</h4>
                 </div>
 
                 <div class="sideCol re four wide column">

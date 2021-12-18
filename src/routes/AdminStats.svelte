@@ -126,7 +126,7 @@
                             </div>
 
                             <div class="tea column">
-                                <Link to="/admin/dash/rooms/">
+                                <Link to="/admin/dash/manage/">
                                     <div class="statsPanel">
                                         <div class="iconContainer">
                                             <img
@@ -141,7 +141,7 @@
                                             <div class="figureContainer">
                                                 {stats.rooms}
                                             </div>
-                                            <div class="description">Rooms</div>
+                                            <div class="description">Halls</div>
                                         </div>
                                     </div>
                                 </Link>
@@ -197,7 +197,7 @@
 
 
                             <div class="brow column">
-                                <Link to="/admin/dash/admins">
+                                <Link to="/admin/dash/messages">
                                     <div class="statsPanel">
                                         <div class="iconContainer">
                                             <img
